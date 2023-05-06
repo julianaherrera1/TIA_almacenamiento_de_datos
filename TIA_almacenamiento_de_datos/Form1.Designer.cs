@@ -52,6 +52,7 @@
             this.btn_archivo_csv.TabIndex = 1;
             this.btn_archivo_csv.Text = "Archivo csv";
             this.btn_archivo_csv.UseVisualStyleBackColor = true;
+            this.btn_archivo_csv.Click += new System.EventHandler(this.btn_archivo_csv_Click);
             // 
             // btn_archivo_xml
             // 
@@ -61,6 +62,7 @@
             this.btn_archivo_xml.TabIndex = 2;
             this.btn_archivo_xml.Text = "Archivo xml";
             this.btn_archivo_xml.UseVisualStyleBackColor = true;
+            this.btn_archivo_xml.Click += new System.EventHandler(this.btn_archivo_xml_Click);
             // 
             // btn_archivo_rtf
             // 
