@@ -25,6 +25,17 @@ namespace TIA_almacenamiento_de_datos
         public List<Usuarios> lista_datos_usuarios = new List<Usuarios>();
         int id = 0;
 
+        private void btn_cerrar_form_Click(object sender, EventArgs e)
+        {
+            // cerrar formulario
+            this.Close();
+        }
+        private void btn_minimizar_form_Click(object sender, EventArgs e)
+        {
+            // Minimizar formulario 
+            this.WindowState = FormWindowState.Minimized;
+        }
+
 
         private void btn_guardar_datos_Click(object sender, EventArgs e)
         {
@@ -91,45 +102,105 @@ namespace TIA_almacenamiento_de_datos
 
         private void btn_cargar_archivo_Click(object sender, EventArgs e)
         {
-            //  mostrar datos del archivo txt en el datagrid
-            try
+            // Crea un OpenFileDialog
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Archivos de texto (*.txt)|*.txt";
+
+            // Muestra el cuadro de diálogo de abrir archivo
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                List<string[]> datos = new List<string[]>();
-                using (StreamReader reader = new StreamReader("Datos.txt"))
+                string filePath = openFileDialog.FileName;
+
+                try
                 {
-                    while (!reader.EndOfStream)
+                    // Leer los datos del archivo de texto
+                    List<string[]> datos = new List<string[]>();
+                    using (StreamReader reader = new StreamReader(filePath))
                     {
-                        string line = reader.ReadLine();
-                        string[] parts = line.Split(',');
-                        datos.Add(parts);
+                        while (!reader.EndOfStream)
+                        {
+                            string line = reader.ReadLine();
+                            string[] parts = line.Split(',');
+                            datos.Add(parts);
+                        }
                     }
+
+                    // Crear una tabla y agregar columnas
+                    DataTable tabla = new DataTable();
+                    tabla.Columns.Add("Id");
+                    tabla.Columns.Add("Nombre");
+                    tabla.Columns.Add("Apellido");
+                    tabla.Columns.Add("Edad");
+
+                    // Agregar filas a la tabla
+                    foreach (string[] rowdata in datos)
+                    {
+                        if (rowdata.Length == 4)
+                        {
+                            tabla.Rows.Add(rowdata);
+                        }
+                    }
+
+                    // Limpiar el DataGridView
+                    dgv_datos_usuario.DataSource = null;
+                    // Asignar la tabla como origen de datos del DataGridView
+                    dgv_datos_usuario.DataSource = tabla;
+
+                    dgv_datos_usuario.AutoResizeColumns();
+
+                    MessageBox.Show("Archivo cargado en el DataGridView.");
                 }
-
-                DataTable tabla = new DataTable();
-                tabla.Columns.Add("Id");
-                tabla.Columns.Add("Nombre");
-                tabla.Columns.Add("Apellido");
-                tabla.Columns.Add("Edad");
-
-                foreach (string[] rowdata in datos)
+                catch (IOException ex)
                 {
-                    if(rowdata.Length == 4)
-                    {
-                        tabla.Rows.Add(rowdata);
-                    }
+                    MessageBox.Show("Error al cargar el archivo: " + ex.Message);
                 }
-
-                dgv_datos_usuario.DataSource = tabla;
-                
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(" Error al cargar los datos: " + ex.Message);
             }
         }
 
         private void btn_editar_datos_Click(object sender, EventArgs e)
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivos de texto (*.txt)|*.txt";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                try
+                {
+                    using (StreamWriter writer = new StreamWriter(filePath, false, Encoding.UTF8))
+                    {
+                        // Recorrer las filas y columnas del DataGridView
+                        for (int row = 0; row < dgv_datos_usuario.Rows.Count; row++)
+                        {
+                            for (int col = 0; col < dgv_datos_usuario.Columns.Count; col++)
+                            {
+                                // Obtener el valor de la celda
+                                string value = dgv_datos_usuario.Rows[row].Cells[col].Value?.ToString();
+
+                                // Escribir el valor en el archivo separado por comas
+                                writer.Write(value);
+
+                                // Agregar una coma si no es la última columna
+                                if (col < dgv_datos_usuario.Columns.Count - 1)
+                                {
+                                    writer.Write(",");
+                                }
+                            }
+
+                            // Agregar un salto de línea después de cada fila
+                            writer.WriteLine();
+                        }
+                    }
+
+                    MessageBox.Show("Datos guardados correctamente en el archivo.");
+                    dgv_datos_usuario.DataSource = null;
+                }
+                catch (IOException ex)
+                {
+                    MessageBox.Show("Error al guardar el archivo: " + ex.Message);
+                }
+            }
         }
 
 
@@ -155,6 +226,8 @@ namespace TIA_almacenamiento_de_datos
                 MessageBox.Show(" No hay ningun archivo ");
             }
         }
+
+        // METODOS : 
 
         // METODO LIMPIAR
         public void limpiar()
@@ -187,5 +260,7 @@ namespace TIA_almacenamiento_de_datos
             }
 
         }
+
+       
     }
 }
