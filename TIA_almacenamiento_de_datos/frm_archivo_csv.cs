@@ -20,12 +20,25 @@ namespace TIA_almacenamiento_de_datos
         {
             InitializeComponent();
         }
+
+        //variables globales
         List<Usuarios> Datos = new List<Usuarios>();
-        int id = 0;
+
+        private void btn_cerrar_Click(object sender, EventArgs e)
+        {
+            // Cerrar formulario
+            this.Close();
+        }
+
+        private void btn_minimizar_Click(object sender, EventArgs e)
+        {
+            // Minimizar formulario 
+            this.WindowState = FormWindowState.Minimized;
+        }
 
         private void btn_guardar_datos_Click(object sender, EventArgs e)
         {
-            dataGridView1.Visible = false;
+            dgv_mostrar_datos.Visible = false;
             string rutaArchivo = "datos.csv";
 
             try
@@ -68,14 +81,12 @@ namespace TIA_almacenamiento_de_datos
             }
 
             dgv_datos_usuario.Rows.Clear();
-
-
-
         }
+
 
         private void btn_cargar_archivo_Click(object sender, EventArgs e)
         {
-            dataGridView1.Visible = true;
+            dgv_mostrar_datos.Visible = true;
             string rutaArchivo = "datos.csv";
 
             try
@@ -100,7 +111,7 @@ namespace TIA_almacenamiento_de_datos
                 }
 
                 // Asigna el DataTable al control DataGridView
-                dataGridView1.DataSource = dataTable;
+                dgv_mostrar_datos.DataSource = dataTable;
 
                 MessageBox.Show("Datos cargados correctamente desde el archivo CSV.");
             }
@@ -116,8 +127,10 @@ namespace TIA_almacenamiento_de_datos
 
             try
             {
+                // Verificar si el archivo existe
                 if (File.Exists(rutaArchivo))
                 {
+                    // Borrar archivo
                     File.Delete(rutaArchivo);
                     MessageBox.Show("Archivo CSV eliminado correctamente.");
                 }
@@ -132,5 +145,53 @@ namespace TIA_almacenamiento_de_datos
             }
 
         }
+
+        private void btn_editar_datos_Click(object sender, EventArgs e)
+        {
+            
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivos CSV (*.csv)|*.csv";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName))
+                    {
+                        // Escribir las cabeceras de las columnas en el archivo CSV
+                        for (int i = 0; i < dgv_mostrar_datos.Columns.Count; i++)
+                        {
+                            sw.Write(dgv_mostrar_datos.Columns[i].HeaderText);
+                            if (i < dgv_mostrar_datos.Columns.Count - 1)
+                                sw.Write(",");
+                        }
+                        sw.WriteLine();
+
+                        // Escribir los datos de las filas en el archivo CSV
+                        foreach (DataGridViewRow row in dgv_mostrar_datos.Rows)
+                        {
+                            for (int i = 0; i < dgv_mostrar_datos.Columns.Count; i++)
+                            {
+                                if (row.Cells[i].Value != null)
+                                    sw.Write(row.Cells[i].Value.ToString());
+                                if (i < dgv_mostrar_datos.Columns.Count - 1)
+                                    sw.Write(",");
+                            }
+                            sw.WriteLine();
+                        }
+                    }
+
+                    MessageBox.Show("Datos guardados correctamente en el archivo CSV.");
+                   
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al guardar el archivo: " + ex.Message);
+                }
+            }
+
+         }
+
+       
     }
 }

@@ -60,7 +60,7 @@
             this.dgv_datos_usuarios.AllowUserToAddRows = false;
             this.dgv_datos_usuarios.AllowUserToDeleteRows = false;
             this.dgv_datos_usuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_datos_usuarios.BackgroundColor = System.Drawing.Color.Black;
+            this.dgv_datos_usuarios.BackgroundColor = System.Drawing.Color.White;
             this.dgv_datos_usuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_datos_usuarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_datos_usuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;

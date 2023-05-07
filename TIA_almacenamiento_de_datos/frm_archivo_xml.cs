@@ -106,27 +106,37 @@ namespace TIA_almacenamiento_de_datos
             {
                 MessageBox.Show(" Error al cargar el archivo xml" + ex.Message);
             }*/
+           
+           
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Archivos XML (*.xml)|*.xml";
+            openFileDialog.Filter = "Archivos de texto (*.xml)|*.xml";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Usuarios>));
+                List<Usuarios> user;
 
                 try
                 {
-                    // Crear un objeto XmlReader para leer el archivo XML
-                    using (XmlReader xmlReader = XmlReader.Create(filePath))
+                    using (XmlReader reader = XmlReader.Create(filePath))
                     {
-                        // Crear un DataTable para almacenar los datos del archivo XML
-                        DataTable dataTable = new DataTable();
-
-                        // Leer el archivo XML y llenar el DataTable con los datos
-                        dataTable.ReadXml(xmlReader);
-
-                        // Mostrar los datos en el DataGridView
-                        dgv_datos_usuarios.DataSource = dataTable;
+                        user = (List<Usuarios>)serializer.Deserialize(reader);
                     }
+
+                    DataTable dataTable = new DataTable();
+                    dataTable.Columns.Add("Id");
+                    dataTable.Columns.Add("Nombre");
+                    dataTable.Columns.Add("Apellido");
+                    dataTable.Columns.Add("Edad");
+
+                    foreach (Usuarios usuario in user)
+                    {
+                        dataTable.Rows.Add(usuario.id_usuario, usuario.nombre_usuario, usuario.apellido_usuario, usuario.edad_usuario);
+                    }
+
+                    // Asignar el DataTable al origen de datos del DataGridView
+                    dgv_datos_usuarios.DataSource = dataTable;
 
                     MessageBox.Show("Archivo XML leído correctamente y mostrado en el DataGridView.");
                 }
@@ -135,6 +145,7 @@ namespace TIA_almacenamiento_de_datos
                     MessageBox.Show("Error al leer el archivo XML: " + ex.Message);
                 }
             }
+
         }
 
         private void btn_eliminar_archivo_Click(object sender, EventArgs e)
@@ -209,6 +220,60 @@ namespace TIA_almacenamiento_de_datos
 
         private void btn_editar_archivo_Click(object sender, EventArgs e)
         {
+
+
+            /* SaveFileDialog saveFileDialog = new SaveFileDialog();
+             saveFileDialog.Filter = "Archivos XML (*.xml)|*.xml";
+
+             if (saveFileDialog.ShowDialog() == DialogResult.OK)
+             {
+                 try
+                 {
+                     // Crear un nuevo DataSet
+                     DataSet dataSet = new DataSet();
+
+                     // Crear una tabla en el DataSet con las columnas correspondientes
+                     DataTable dataTable = new DataTable("Datos");
+                     foreach (DataGridViewColumn column in dgv_datos_usuarios.Columns)
+                     {
+                         dataTable.Columns.Add(column.Name);
+                     }
+
+                     // Recorrer las filas del DataGridView y agregarlas a la tabla del DataSet
+                     foreach (DataGridViewRow row in dgv_datos_usuarios.Rows)
+                     {
+                         DataRow dataRow = dataTable.NewRow();
+                         foreach (DataGridViewCell cell in row.Cells)
+                         {
+                             dataRow[cell.ColumnIndex] = cell.Value;
+                         }
+                         dataTable.Rows.Add(dataRow);
+                     }
+
+                     // Agregar la tabla al DataSet
+                     dataSet.Tables.Add(dataTable);
+
+                     // Leer los datos existentes del archivo XML si existe
+                     if (File.Exists(saveFileDialog.FileName))
+                     {
+                         dataSet.ReadXml(saveFileDialog.FileName);
+                     }
+
+                     // Guardar el DataSet en un archivo XML
+                     dataSet.WriteXml(saveFileDialog.FileName);
+
+                     MessageBox.Show("Datos guardados correctamente en el archivo XML.");
+                 }
+                 catch (InvalidOperationException ex)
+                 {
+                     MessageBox.Show("Error de deserialización XML: " + ex.Message);
+                 }
+                 catch (Exception ex)
+                 {
+                     MessageBox.Show("Error al guardar el archivo: " + ex.Message);
+                 }
+
+             }*/
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Archivos XML (*.xml)|*.xml";
 
@@ -217,7 +282,7 @@ namespace TIA_almacenamiento_de_datos
                 try
                 {
                     // Crear un nuevo DataSet
-                   DataSet dataSet = new DataSet();
+                    DataSet dataSet = new DataSet();
 
                     // Crear una tabla en el DataSet con las columnas correspondientes
                     DataTable dataTable = new DataTable("Datos");
@@ -241,7 +306,7 @@ namespace TIA_almacenamiento_de_datos
                     dataSet.Tables.Add(dataTable);
 
                     // Guardar el DataSet en un archivo XML
-                    dataSet.WriteXml(saveFileDialog.FileName);
+                    dataSet.WriteXml(saveFileDialog.FileName, XmlWriteMode.WriteSchema);
 
                     MessageBox.Show("Datos guardados correctamente en el archivo XML.");
                 }
@@ -250,8 +315,11 @@ namespace TIA_almacenamiento_de_datos
                     MessageBox.Show("Error al guardar el archivo: " + ex.Message);
                 }
             }
+
+
         }
 
-       
+
     }
+
 }
