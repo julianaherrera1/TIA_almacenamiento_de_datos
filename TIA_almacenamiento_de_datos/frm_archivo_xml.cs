@@ -220,101 +220,32 @@ namespace TIA_almacenamiento_de_datos
 
         private void btn_editar_archivo_Click(object sender, EventArgs e)
         {
+            DataGridViewData data = new DataGridViewData();
+            data.Rows = new List<DataGridViewRowData>();
 
-
-            /* SaveFileDialog saveFileDialog = new SaveFileDialog();
-             saveFileDialog.Filter = "Archivos XML (*.xml)|*.xml";
-
-             if (saveFileDialog.ShowDialog() == DialogResult.OK)
-             {
-                 try
-                 {
-                     // Crear un nuevo DataSet
-                     DataSet dataSet = new DataSet();
-
-                     // Crear una tabla en el DataSet con las columnas correspondientes
-                     DataTable dataTable = new DataTable("Datos");
-                     foreach (DataGridViewColumn column in dgv_datos_usuarios.Columns)
-                     {
-                         dataTable.Columns.Add(column.Name);
-                     }
-
-                     // Recorrer las filas del DataGridView y agregarlas a la tabla del DataSet
-                     foreach (DataGridViewRow row in dgv_datos_usuarios.Rows)
-                     {
-                         DataRow dataRow = dataTable.NewRow();
-                         foreach (DataGridViewCell cell in row.Cells)
-                         {
-                             dataRow[cell.ColumnIndex] = cell.Value;
-                         }
-                         dataTable.Rows.Add(dataRow);
-                     }
-
-                     // Agregar la tabla al DataSet
-                     dataSet.Tables.Add(dataTable);
-
-                     // Leer los datos existentes del archivo XML si existe
-                     if (File.Exists(saveFileDialog.FileName))
-                     {
-                         dataSet.ReadXml(saveFileDialog.FileName);
-                     }
-
-                     // Guardar el DataSet en un archivo XML
-                     dataSet.WriteXml(saveFileDialog.FileName);
-
-                     MessageBox.Show("Datos guardados correctamente en el archivo XML.");
-                 }
-                 catch (InvalidOperationException ex)
-                 {
-                     MessageBox.Show("Error de deserialización XML: " + ex.Message);
-                 }
-                 catch (Exception ex)
-                 {
-                     MessageBox.Show("Error al guardar el archivo: " + ex.Message);
-                 }
-
-             }*/
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Archivos XML (*.xml)|*.xml";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            foreach (DataGridViewRow row in dgv_datos_usuarios.Rows)
             {
-                try
+                // Ignora la fila de nueva fila
+                if (!row.IsNewRow)
                 {
-                    // Crear un nuevo DataSet
-                    DataSet dataSet = new DataSet();
+                    DataGridViewRowData rowData = new DataGridViewRowData();
+                    rowData.Cells = new List<string>();
 
-                    // Crear una tabla en el DataSet con las columnas correspondientes
-                    DataTable dataTable = new DataTable("Datos");
-                    foreach (DataGridViewColumn column in dgv_datos_usuarios.Columns)
+                    foreach (DataGridViewCell cell in row.Cells)
                     {
-                        dataTable.Columns.Add(column.Name);
+                        rowData.Cells.Add(cell.Value?.ToString() ?? "");
                     }
 
-                    // Recorrer las filas del DataGridView y agregarlas a la tabla del DataSet
-                    foreach (DataGridViewRow row in dgv_datos_usuarios.Rows)
-                    {
-                        DataRow dataRow = dataTable.NewRow();
-                        foreach (DataGridViewCell cell in row.Cells)
-                        {
-                            dataRow[cell.ColumnIndex] = cell.Value;
-                        }
-                        dataTable.Rows.Add(dataRow);
-                    }
-
-                    // Agregar la tabla al DataSet
-                    dataSet.Tables.Add(dataTable);
-
-                    // Guardar el DataSet en un archivo XML
-                    dataSet.WriteXml(saveFileDialog.FileName, XmlWriteMode.WriteSchema);
-
-                    MessageBox.Show("Datos guardados correctamente en el archivo XML.");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al guardar el archivo: " + ex.Message);
+                    data.Rows.Add(rowData);
                 }
             }
+            XmlSerializer serializer = new XmlSerializer(typeof(DataGridViewData));
+
+            using (FileStream fileStream = new FileStream("Datos.xml", FileMode.Create))
+            {
+                serializer.Serialize(fileStream, data);
+            }
+
 
 
         }

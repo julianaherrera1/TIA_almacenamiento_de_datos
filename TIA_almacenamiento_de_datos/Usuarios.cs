@@ -13,4 +13,16 @@ namespace TIA_almacenamiento_de_datos
         public string apellido_usuario { get; set; }
         public int edad_usuario { get; set; }
     }
+    [Serializable]
+    public class DataGridViewData
+    {
+        public List<DataGridViewRowData> Rows { get; set; }
+    }
+
+    [Serializable]
+    public class DataGridViewRowData
+    {
+        public List<string> Cells { get; set; }
+    }
+
 }

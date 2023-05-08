@@ -29,16 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_nombre_usuario = new System.Windows.Forms.TextBox();
             this.lbl_nombre_usuario = new System.Windows.Forms.Label();
             this.grp_info_usuario = new System.Windows.Forms.GroupBox();
-            this.btn_guardar_datos = new System.Windows.Forms.Button();
             this.txt_edad_usuario = new System.Windows.Forms.TextBox();
-            this.lbl_edad_usuario = new System.Windows.Forms.Label();
+            this.lbl_edad_2 = new System.Windows.Forms.Label();
             this.txt_apellido_usuario = new System.Windows.Forms.TextBox();
+            this.lbl_apellido_2 = new System.Windows.Forms.Label();
+            this.lbl_nombre_2 = new System.Windows.Forms.Label();
+            this.btn_guardar_datos = new System.Windows.Forms.Button();
+            this.lbl_edad_usuario = new System.Windows.Forms.Label();
             this.lbl_apellido_usuario = new System.Windows.Forms.Label();
             this.dgv_datos_usuario = new System.Windows.Forms.DataGridView();
             this.btn_cargar_archivo = new System.Windows.Forms.Button();
@@ -47,11 +50,8 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_cerrar_form = new System.Windows.Forms.Button();
             this.btn_minimizar_form = new System.Windows.Forms.Button();
-            this.lbl_nombre_2 = new System.Windows.Forms.Label();
-            this.lbl_apellido_2 = new System.Windows.Forms.Label();
-            this.lbl_edad_2 = new System.Windows.Forms.Label();
+            this.btn_cerrar_form = new System.Windows.Forms.Button();
             this.grp_info_usuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_datos_usuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -100,6 +100,55 @@
             this.grp_info_usuario.TabStop = false;
             this.grp_info_usuario.Text = "Informacion del usuario";
             // 
+            // txt_edad_usuario
+            // 
+            this.txt_edad_usuario.BackColor = System.Drawing.Color.Black;
+            this.txt_edad_usuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_edad_usuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_edad_usuario.ForeColor = System.Drawing.Color.Silver;
+            this.txt_edad_usuario.Location = new System.Drawing.Point(126, 156);
+            this.txt_edad_usuario.Name = "txt_edad_usuario";
+            this.txt_edad_usuario.Size = new System.Drawing.Size(100, 20);
+            this.txt_edad_usuario.TabIndex = 5;
+            // 
+            // lbl_edad_2
+            // 
+            this.lbl_edad_2.AutoSize = true;
+            this.lbl_edad_2.Location = new System.Drawing.Point(122, 171);
+            this.lbl_edad_2.Name = "lbl_edad_2";
+            this.lbl_edad_2.Size = new System.Drawing.Size(161, 20);
+            this.lbl_edad_2.TabIndex = 9;
+            this.lbl_edad_2.Text = "___________________";
+            // 
+            // txt_apellido_usuario
+            // 
+            this.txt_apellido_usuario.BackColor = System.Drawing.Color.Black;
+            this.txt_apellido_usuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_apellido_usuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_apellido_usuario.ForeColor = System.Drawing.Color.LightGray;
+            this.txt_apellido_usuario.Location = new System.Drawing.Point(126, 104);
+            this.txt_apellido_usuario.Name = "txt_apellido_usuario";
+            this.txt_apellido_usuario.Size = new System.Drawing.Size(100, 20);
+            this.txt_apellido_usuario.TabIndex = 3;
+            // 
+            // lbl_apellido_2
+            // 
+            this.lbl_apellido_2.AutoSize = true;
+            this.lbl_apellido_2.Location = new System.Drawing.Point(122, 120);
+            this.lbl_apellido_2.Name = "lbl_apellido_2";
+            this.lbl_apellido_2.Size = new System.Drawing.Size(161, 20);
+            this.lbl_apellido_2.TabIndex = 8;
+            this.lbl_apellido_2.Text = "___________________";
+            // 
+            // lbl_nombre_2
+            // 
+            this.lbl_nombre_2.AutoSize = true;
+            this.lbl_nombre_2.Location = new System.Drawing.Point(122, 73);
+            this.lbl_nombre_2.Name = "lbl_nombre_2";
+            this.lbl_nombre_2.Size = new System.Drawing.Size(161, 20);
+            this.lbl_nombre_2.TabIndex = 7;
+            this.lbl_nombre_2.Text = "___________________";
+            // 
             // btn_guardar_datos
             // 
             this.btn_guardar_datos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
@@ -115,17 +164,6 @@
             this.btn_guardar_datos.UseVisualStyleBackColor = true;
             this.btn_guardar_datos.Click += new System.EventHandler(this.btn_guardar_datos_Click);
             // 
-            // txt_edad_usuario
-            // 
-            this.txt_edad_usuario.BackColor = System.Drawing.Color.Black;
-            this.txt_edad_usuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_edad_usuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_edad_usuario.ForeColor = System.Drawing.Color.Silver;
-            this.txt_edad_usuario.Location = new System.Drawing.Point(126, 156);
-            this.txt_edad_usuario.Name = "txt_edad_usuario";
-            this.txt_edad_usuario.Size = new System.Drawing.Size(100, 20);
-            this.txt_edad_usuario.TabIndex = 5;
-            // 
             // lbl_edad_usuario
             // 
             this.lbl_edad_usuario.AutoSize = true;
@@ -135,17 +173,6 @@
             this.lbl_edad_usuario.Size = new System.Drawing.Size(64, 22);
             this.lbl_edad_usuario.TabIndex = 4;
             this.lbl_edad_usuario.Text = "Edad:";
-            // 
-            // txt_apellido_usuario
-            // 
-            this.txt_apellido_usuario.BackColor = System.Drawing.Color.Black;
-            this.txt_apellido_usuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_apellido_usuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_apellido_usuario.ForeColor = System.Drawing.Color.LightGray;
-            this.txt_apellido_usuario.Location = new System.Drawing.Point(126, 104);
-            this.txt_apellido_usuario.Name = "txt_apellido_usuario";
-            this.txt_apellido_usuario.Size = new System.Drawing.Size(100, 20);
-            this.txt_apellido_usuario.TabIndex = 3;
             // 
             // lbl_apellido_usuario
             // 
@@ -166,33 +193,33 @@
             this.dgv_datos_usuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_datos_usuario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_datos_usuario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_datos_usuario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_datos_usuario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_datos_usuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_datos_usuario.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgv_datos_usuario.Location = new System.Drawing.Point(369, 69);
             this.dgv_datos_usuario.Name = "dgv_datos_usuario";
             this.dgv_datos_usuario.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_datos_usuario.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgv_datos_usuario.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_datos_usuario.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgv_datos_usuario.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_datos_usuario.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgv_datos_usuario.Size = new System.Drawing.Size(366, 223);
             this.dgv_datos_usuario.TabIndex = 3;
@@ -204,7 +231,7 @@
             this.btn_cargar_archivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cargar_archivo.Font = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cargar_archivo.ForeColor = System.Drawing.Color.LightGray;
-            this.btn_cargar_archivo.Location = new System.Drawing.Point(642, 312);
+            this.btn_cargar_archivo.Location = new System.Drawing.Point(417, 313);
             this.btn_cargar_archivo.Name = "btn_cargar_archivo";
             this.btn_cargar_archivo.Size = new System.Drawing.Size(93, 36);
             this.btn_cargar_archivo.TabIndex = 4;
@@ -234,7 +261,7 @@
             this.btn_borrar_datos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_borrar_datos.Font = new System.Drawing.Font("Yu Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_borrar_datos.ForeColor = System.Drawing.Color.LightGray;
-            this.btn_borrar_datos.Location = new System.Drawing.Point(415, 312);
+            this.btn_borrar_datos.Location = new System.Drawing.Point(642, 312);
             this.btn_borrar_datos.Name = "btn_borrar_datos";
             this.btn_borrar_datos.Size = new System.Drawing.Size(93, 36);
             this.btn_borrar_datos.TabIndex = 6;
@@ -260,19 +287,6 @@
             this.panel1.Size = new System.Drawing.Size(764, 41);
             this.panel1.TabIndex = 7;
             // 
-            // btn_cerrar_form
-            // 
-            this.btn_cerrar_form.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cerrar_form.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cerrar_form.ForeColor = System.Drawing.Color.LightGray;
-            this.btn_cerrar_form.Location = new System.Drawing.Point(721, 12);
-            this.btn_cerrar_form.Name = "btn_cerrar_form";
-            this.btn_cerrar_form.Size = new System.Drawing.Size(32, 24);
-            this.btn_cerrar_form.TabIndex = 0;
-            this.btn_cerrar_form.Text = "X";
-            this.btn_cerrar_form.UseVisualStyleBackColor = true;
-            this.btn_cerrar_form.Click += new System.EventHandler(this.btn_cerrar_form_Click);
-            // 
             // btn_minimizar_form
             // 
             this.btn_minimizar_form.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -286,32 +300,18 @@
             this.btn_minimizar_form.UseVisualStyleBackColor = true;
             this.btn_minimizar_form.Click += new System.EventHandler(this.btn_minimizar_form_Click);
             // 
-            // lbl_nombre_2
+            // btn_cerrar_form
             // 
-            this.lbl_nombre_2.AutoSize = true;
-            this.lbl_nombre_2.Location = new System.Drawing.Point(122, 73);
-            this.lbl_nombre_2.Name = "lbl_nombre_2";
-            this.lbl_nombre_2.Size = new System.Drawing.Size(161, 20);
-            this.lbl_nombre_2.TabIndex = 7;
-            this.lbl_nombre_2.Text = "___________________";
-            // 
-            // lbl_apellido_2
-            // 
-            this.lbl_apellido_2.AutoSize = true;
-            this.lbl_apellido_2.Location = new System.Drawing.Point(122, 120);
-            this.lbl_apellido_2.Name = "lbl_apellido_2";
-            this.lbl_apellido_2.Size = new System.Drawing.Size(161, 20);
-            this.lbl_apellido_2.TabIndex = 8;
-            this.lbl_apellido_2.Text = "___________________";
-            // 
-            // lbl_edad_2
-            // 
-            this.lbl_edad_2.AutoSize = true;
-            this.lbl_edad_2.Location = new System.Drawing.Point(122, 171);
-            this.lbl_edad_2.Name = "lbl_edad_2";
-            this.lbl_edad_2.Size = new System.Drawing.Size(161, 20);
-            this.lbl_edad_2.TabIndex = 9;
-            this.lbl_edad_2.Text = "___________________";
+            this.btn_cerrar_form.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cerrar_form.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cerrar_form.ForeColor = System.Drawing.Color.LightGray;
+            this.btn_cerrar_form.Location = new System.Drawing.Point(721, 12);
+            this.btn_cerrar_form.Name = "btn_cerrar_form";
+            this.btn_cerrar_form.Size = new System.Drawing.Size(32, 24);
+            this.btn_cerrar_form.TabIndex = 0;
+            this.btn_cerrar_form.Text = "X";
+            this.btn_cerrar_form.UseVisualStyleBackColor = true;
+            this.btn_cerrar_form.Click += new System.EventHandler(this.btn_cerrar_form_Click);
             // 
             // frm_archivo_txt
             // 
