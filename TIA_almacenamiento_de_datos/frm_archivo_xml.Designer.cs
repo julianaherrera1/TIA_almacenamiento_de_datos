@@ -60,7 +60,7 @@
             this.dgv_datos_usuarios.AllowUserToAddRows = false;
             this.dgv_datos_usuarios.AllowUserToDeleteRows = false;
             this.dgv_datos_usuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_datos_usuarios.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_datos_usuarios.BackgroundColor = System.Drawing.Color.Black;
             this.dgv_datos_usuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_datos_usuarios.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_datos_usuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -81,7 +81,7 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             this.dgv_datos_usuarios.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_datos_usuarios.Size = new System.Drawing.Size(276, 183);
+            this.dgv_datos_usuarios.Size = new System.Drawing.Size(322, 205);
             this.dgv_datos_usuarios.TabIndex = 0;
             // 
             // txt_nombre_usuario
@@ -90,7 +90,7 @@
             this.txt_nombre_usuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_nombre_usuario.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_nombre_usuario.ForeColor = System.Drawing.Color.LightGray;
-            this.txt_nombre_usuario.Location = new System.Drawing.Point(406, 91);
+            this.txt_nombre_usuario.Location = new System.Drawing.Point(438, 91);
             this.txt_nombre_usuario.Name = "txt_nombre_usuario";
             this.txt_nombre_usuario.Size = new System.Drawing.Size(100, 26);
             this.txt_nombre_usuario.TabIndex = 1;
@@ -100,7 +100,7 @@
             this.lbl_nombre_usuario.AutoSize = true;
             this.lbl_nombre_usuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_nombre_usuario.ForeColor = System.Drawing.Color.LightGray;
-            this.lbl_nombre_usuario.Location = new System.Drawing.Point(308, 105);
+            this.lbl_nombre_usuario.Location = new System.Drawing.Point(340, 105);
             this.lbl_nombre_usuario.Name = "lbl_nombre_usuario";
             this.lbl_nombre_usuario.Size = new System.Drawing.Size(89, 22);
             this.lbl_nombre_usuario.TabIndex = 2;
@@ -111,7 +111,7 @@
             this.lbl_apellido_usuario.AutoSize = true;
             this.lbl_apellido_usuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_apellido_usuario.ForeColor = System.Drawing.Color.LightGray;
-            this.lbl_apellido_usuario.Location = new System.Drawing.Point(308, 157);
+            this.lbl_apellido_usuario.Location = new System.Drawing.Point(340, 157);
             this.lbl_apellido_usuario.Name = "lbl_apellido_usuario";
             this.lbl_apellido_usuario.Size = new System.Drawing.Size(89, 22);
             this.lbl_apellido_usuario.TabIndex = 3;
@@ -123,7 +123,7 @@
             this.txt_apellido_usuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_apellido_usuario.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_apellido_usuario.ForeColor = System.Drawing.Color.LightGray;
-            this.txt_apellido_usuario.Location = new System.Drawing.Point(406, 145);
+            this.txt_apellido_usuario.Location = new System.Drawing.Point(438, 145);
             this.txt_apellido_usuario.Name = "txt_apellido_usuario";
             this.txt_apellido_usuario.Size = new System.Drawing.Size(100, 26);
             this.txt_apellido_usuario.TabIndex = 4;
@@ -133,7 +133,7 @@
             this.lbl_edad_usuario.AutoSize = true;
             this.lbl_edad_usuario.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_edad_usuario.ForeColor = System.Drawing.Color.LightGray;
-            this.lbl_edad_usuario.Location = new System.Drawing.Point(333, 200);
+            this.lbl_edad_usuario.Location = new System.Drawing.Point(365, 200);
             this.lbl_edad_usuario.Name = "lbl_edad_usuario";
             this.lbl_edad_usuario.Size = new System.Drawing.Size(64, 22);
             this.lbl_edad_usuario.TabIndex = 5;
@@ -145,7 +145,7 @@
             this.txt_edad_usuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_edad_usuario.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_edad_usuario.ForeColor = System.Drawing.Color.LightGray;
-            this.txt_edad_usuario.Location = new System.Drawing.Point(406, 200);
+            this.txt_edad_usuario.Location = new System.Drawing.Point(438, 200);
             this.txt_edad_usuario.Name = "txt_edad_usuario";
             this.txt_edad_usuario.Size = new System.Drawing.Size(100, 26);
             this.txt_edad_usuario.TabIndex = 6;
@@ -157,7 +157,7 @@
             this.btn_crear_archivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_crear_archivo.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_crear_archivo.ForeColor = System.Drawing.Color.LightGray;
-            this.btn_crear_archivo.Location = new System.Drawing.Point(507, 258);
+            this.btn_crear_archivo.Location = new System.Drawing.Point(539, 258);
             this.btn_crear_archivo.Name = "btn_crear_archivo";
             this.btn_crear_archivo.Size = new System.Drawing.Size(77, 31);
             this.btn_crear_archivo.TabIndex = 7;
@@ -172,7 +172,7 @@
             this.btn_cargar_archivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cargar_archivo.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cargar_archivo.ForeColor = System.Drawing.Color.LightGray;
-            this.btn_cargar_archivo.Location = new System.Drawing.Point(12, 258);
+            this.btn_cargar_archivo.Location = new System.Drawing.Point(26, 280);
             this.btn_cargar_archivo.Name = "btn_cargar_archivo";
             this.btn_cargar_archivo.Size = new System.Drawing.Size(77, 31);
             this.btn_cargar_archivo.TabIndex = 8;
@@ -187,7 +187,7 @@
             this.btn_editar_archivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_editar_archivo.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_editar_archivo.ForeColor = System.Drawing.Color.LightGray;
-            this.btn_editar_archivo.Location = new System.Drawing.Point(112, 258);
+            this.btn_editar_archivo.Location = new System.Drawing.Point(126, 280);
             this.btn_editar_archivo.Name = "btn_editar_archivo";
             this.btn_editar_archivo.Size = new System.Drawing.Size(77, 31);
             this.btn_editar_archivo.TabIndex = 9;
@@ -202,7 +202,7 @@
             this.btn_eliminar_archivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_eliminar_archivo.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_eliminar_archivo.ForeColor = System.Drawing.Color.LightGray;
-            this.btn_eliminar_archivo.Location = new System.Drawing.Point(211, 258);
+            this.btn_eliminar_archivo.Location = new System.Drawing.Point(225, 280);
             this.btn_eliminar_archivo.Name = "btn_eliminar_archivo";
             this.btn_eliminar_archivo.Size = new System.Drawing.Size(77, 31);
             this.btn_eliminar_archivo.TabIndex = 10;
@@ -225,7 +225,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(616, 41);
+            this.panel1.Size = new System.Drawing.Size(628, 41);
             this.panel1.TabIndex = 11;
             // 
             // btn_minimizar_form
@@ -257,7 +257,7 @@
             // lbl_nombre_2
             // 
             this.lbl_nombre_2.AutoSize = true;
-            this.lbl_nombre_2.Location = new System.Drawing.Point(403, 114);
+            this.lbl_nombre_2.Location = new System.Drawing.Point(435, 114);
             this.lbl_nombre_2.Name = "lbl_nombre_2";
             this.lbl_nombre_2.Size = new System.Drawing.Size(181, 13);
             this.lbl_nombre_2.TabIndex = 12;
@@ -266,7 +266,7 @@
             // lbl_apellido_2
             // 
             this.lbl_apellido_2.AutoSize = true;
-            this.lbl_apellido_2.Location = new System.Drawing.Point(403, 168);
+            this.lbl_apellido_2.Location = new System.Drawing.Point(435, 168);
             this.lbl_apellido_2.Name = "lbl_apellido_2";
             this.lbl_apellido_2.Size = new System.Drawing.Size(181, 13);
             this.lbl_apellido_2.TabIndex = 13;
@@ -275,7 +275,7 @@
             // lbl_edad_2
             // 
             this.lbl_edad_2.AutoSize = true;
-            this.lbl_edad_2.Location = new System.Drawing.Point(403, 227);
+            this.lbl_edad_2.Location = new System.Drawing.Point(435, 227);
             this.lbl_edad_2.Name = "lbl_edad_2";
             this.lbl_edad_2.Size = new System.Drawing.Size(181, 13);
             this.lbl_edad_2.TabIndex = 14;
@@ -286,7 +286,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(616, 337);
+            this.ClientSize = new System.Drawing.Size(628, 350);
             this.Controls.Add(this.lbl_edad_2);
             this.Controls.Add(this.txt_apellido_usuario);
             this.Controls.Add(this.lbl_apellido_2);

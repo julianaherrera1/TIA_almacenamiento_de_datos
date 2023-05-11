@@ -220,30 +220,37 @@ namespace TIA_almacenamiento_de_datos
 
         private void btn_editar_archivo_Click(object sender, EventArgs e)
         {
-            DataGridViewData data = new DataGridViewData();
-            data.Rows = new List<DataGridViewRowData>();
+            // Obtén los datos del DataGridView
+                DataTable dataTable = (DataTable)dgv_datos_usuarios.DataSource;
+                List<Usuarios> usuarios = new List<Usuarios>();
 
-            foreach (DataGridViewRow row in dgv_datos_usuarios.Rows)
-            {
-                // Ignora la fila de nueva fila
-                if (!row.IsNewRow)
+                foreach (DataRow row in dataTable.Rows)
                 {
-                    DataGridViewRowData rowData = new DataGridViewRowData();
-                    rowData.Cells = new List<string>();
+                    Usuarios usuario = new Usuarios();
+                    usuario.id_usuario = Convert.ToInt32(row["Id"]);
+                    usuario.nombre_usuario = row["Nombre"].ToString();
+                    usuario.apellido_usuario = row["Apellido"].ToString();
+                    usuario.edad_usuario = Convert.ToInt32(row["Edad"]);
 
-                    foreach (DataGridViewCell cell in row.Cells)
+                    usuarios.Add(usuario);
+                }
+
+                // Guarda los datos en XML
+                try
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<Usuarios>));
+
+                    using (TextWriter escribir = new StreamWriter("Datos.xml"))
                     {
-                        rowData.Cells.Add(cell.Value?.ToString() ?? "");
+                        serializer.Serialize(escribir, usuarios);
                     }
 
-                    data.Rows.Add(rowData);
+                    MessageBox.Show("Cambios guardados en el archivo XML correctamente.");
                 }
-            }
-            XmlSerializer serializer = new XmlSerializer(typeof(DataGridViewData));
-
-            using (FileStream fileStream = new FileStream("Datos.xml", FileMode.Create))
-            {
-                serializer.Serialize(fileStream, data);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al guardar los cambios en el archivo XML: " + ex.Message);
+                }
             }
 
 
@@ -253,4 +260,4 @@ namespace TIA_almacenamiento_de_datos
 
     }
 
-}
+
